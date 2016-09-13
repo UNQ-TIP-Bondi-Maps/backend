@@ -2,9 +2,9 @@ package ar.edu.unq.tip.tip_bondi_maps_backend;
 
 public class Bus {
 
-	int internal;
-	String directionOfTravel;
-	Position position;
+	private int internal;
+	private String directionOfTravel;
+	private Position position;
 	
 	public void updatePosition(Position newPosition){
 		this.setPosition(newPosition);

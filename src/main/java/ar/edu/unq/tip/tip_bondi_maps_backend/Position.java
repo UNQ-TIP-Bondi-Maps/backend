@@ -2,8 +2,8 @@ package ar.edu.unq.tip.tip_bondi_maps_backend;
 
 public class Position {
 
-	float lat;
-	float lng;
+	private float lat;
+	private float lng;
 
 	public float getLat() {
 		return lat;
