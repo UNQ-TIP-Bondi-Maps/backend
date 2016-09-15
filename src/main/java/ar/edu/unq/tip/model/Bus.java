@@ -7,6 +7,14 @@ public class Bus extends Entity {
 	private String directionOfTravel;
 	private Position position;
 	
+	public Bus() { }
+	
+	public Bus(int internal, String directionOfTravel, Position position) {
+		this.internal = internal;
+		this.directionOfTravel = directionOfTravel;
+		this.position = position;
+	}
+	
 	public void updatePosition(Position newPosition){
 		this.setPosition(newPosition);
 	}

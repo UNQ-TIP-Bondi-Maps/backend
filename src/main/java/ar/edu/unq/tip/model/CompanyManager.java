@@ -10,6 +10,16 @@ public class CompanyManager extends Entity {
 	private String password;
 	private Company company;
 	
+	public CompanyManager() { }
+	
+	public CompanyManager(String nameAndSurname, int phone, String email, String userName, String password, Company company) {
+		this.phone = phone;
+		this.email = email;
+		this.userName = userName;
+		this.password = password;
+		this.company = company;
+	}
+	
 	public String getNameAndSurname() {
 		return nameAndSurname;
 	}

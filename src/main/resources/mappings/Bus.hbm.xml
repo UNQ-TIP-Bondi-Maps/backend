@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" default-cascade="save-update">
+	<class name="ar.edu.unq.tip.model.Bus">
+		<id column="ID" name="id">
+			<generator class="native" />
+		</id>
+		<property name="internal" not-null="true" unique="false"/>
+		<property name="directionOfTravel" not-null="true" unique="false"/>
+		<many-to-one name="position" class="ar.edu.unq.tip.model.Position"
+			lazy="false"></many-to-one>
+	</class>
+</hibernate-mapping>

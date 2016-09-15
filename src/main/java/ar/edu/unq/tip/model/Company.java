@@ -9,6 +9,13 @@ public class Company extends Entity {
 	private String imageUrl;
 	private List<Bus> buses;
 	
+	public Company() { }
+	
+	public Company(String name, String imageUrl) { 
+		this.name = name;
+		this.imageUrl = imageUrl;
+	}
+	
 	public void addBus(Bus aBus){
 		this.getBuses().add(aBus);
 	}

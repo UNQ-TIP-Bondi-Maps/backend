@@ -6,11 +6,11 @@
 		<id column="ID" name="id">
 			<generator class="native" />
 		</id>
-		<property name="nameAndSurname" not-null="true" unique="false"/>
-		<property name="phone" not-null="true" unique="false"/>
-		<property name="email" not-null="true" unique="false"/>
-		<property name="userName" not-null="true" unique="true"/>
-		<property name="password" not-null="true" unique="false"/>
-		<one-to-one name="company" class="ar.edu.unq.tip.model.Company"></one-to-one>
+		<property name="nameAndSurname" unique="true"/>
+		<property name="phone" unique="false"/>
+		<property name="email" unique="false"/>
+		<property name="userName" unique="true"/>
+		<property name="password" unique="false"/>
+		<one-to-one name="company" class="ar.edu.unq.tip.model.Company" cascade="all"></one-to-one>
 	</class>
 </hibernate-mapping>

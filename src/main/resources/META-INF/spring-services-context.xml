@@ -8,7 +8,7 @@
 
 	<!-- beans de spring -->
 	
-	<!-- <bean id="services.ejemplo" class="ar.edu.unq.tip.services.EjemploService">
-		<property name="repository" ref="persistence.ejemplorepository" />
-	</bean>  -->
+	<bean id="services.companyManager" class="ar.edu.unq.tip.services.CompanyManagerService">
+		<property name="repository" ref="persistence.companyManagerRepository" />
+	</bean>
 </beans>

@@ -94,8 +94,8 @@
 	<!-- ________________________________________ -->
 	<!-- ________________________________________ -->
 
-	<!-- <bean id="persistence.ejemplorepository" 
-		class="ar.edu.unq.tip.repositories.EjemploRepository">
+	<bean id="persistence.companyManagerRepository" 
+		class="ar.edu.unq.tip.repositories.CompanyManagerRepository">
 		<property name="sessionFactory" ref="persistence.sessionFactory"/>
-	</bean>  -->
+	</bean>
 </beans>

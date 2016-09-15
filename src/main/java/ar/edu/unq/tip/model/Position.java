@@ -6,6 +6,13 @@ public class Position extends Entity {
 	private float lat;
 	private float lng;
 
+	public Position() { }
+
+	public Position(float lat, float lng) {
+		this.lat = lat;
+		this.lng = lng;
+	}
+	
 	public float getLat() {
 		return lat;
 	}
