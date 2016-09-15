@@ -1,1 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" default-cascade="save-update">
+	<class name="ar.edu.unq.tip.model.CompanyManager">
+		<id column="ID" name="id">
+			<generator class="native" />
+		</id>
+		<property name="nameAndSurname" not-null="true" unique="false"/>
+		<property name="phone" not-null="true" unique="false"/>
+		<property name="email" not-null="true" unique="false"/>
+		<property name="userName" not-null="true" unique="true"/>
+		<property name="password" not-null="true" unique="false"/>
+		<one-to-one name="company" class="ar.edu.unq.tip.model.Company"></one-to-one>
+	</class>
+</hibernate-mapping>
