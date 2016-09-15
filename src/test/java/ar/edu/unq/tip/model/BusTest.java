@@ -1,10 +1,13 @@
-package ar.edu.unq.tip.tip_bondi_maps_backend;
+package ar.edu.unq.tip.model;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
+
+import ar.edu.unq.tip.model.Bus;
+import ar.edu.unq.tip.model.Position;
 
 public class BusTest {
 	

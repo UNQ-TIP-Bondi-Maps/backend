@@ -1,4 +1,4 @@
-package ar.edu.unq.tip.tip_bondi_maps_backend;
+package ar.edu.unq.tip.model;
 
 import java.util.List;
 
