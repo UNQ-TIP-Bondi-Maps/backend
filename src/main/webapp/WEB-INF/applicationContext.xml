@@ -27,6 +27,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 	<jaxrs:server id="customServices">
 		<jaxrs:serviceBeans>
 			<ref bean="companyManagerRest"/>
+			<ref bean="busRest"/>
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
 			<entry key="json" value="application/json"/>
@@ -43,5 +44,8 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
 	<bean id="companyManagerRest" class="ar.edu.unq.tip.rest.CompanyManagerRest">
 		<property name="companyManagerService" ref="services.companyManager"/>
+	</bean>
+	<bean id="busRest" class="ar.edu.unq.tip.rest.BusRest">
+		<property name="busService" ref="services.bus"/>
 	</bean>
 </beans>

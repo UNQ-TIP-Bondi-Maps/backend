@@ -98,4 +98,8 @@
 		class="ar.edu.unq.tip.repositories.CompanyManagerRepository">
 		<property name="sessionFactory" ref="persistence.sessionFactory"/>
 	</bean>
+	<bean id="persistence.busRepository" 
+		class="ar.edu.unq.tip.repositories.BusRepository">
+		<property name="sessionFactory" ref="persistence.sessionFactory"/>
+	</bean>
 </beans>
