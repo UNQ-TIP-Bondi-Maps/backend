@@ -22,7 +22,7 @@ public class PositionRest {
 		return positionService;
 	}
 
-	public void setPostionService(PositionService positionService) {
+	public void setPositionService(PositionService positionService) {
 		this.positionService = positionService;
 		Position position = new Position(1, 1);
 		this.positionService.save(position);
