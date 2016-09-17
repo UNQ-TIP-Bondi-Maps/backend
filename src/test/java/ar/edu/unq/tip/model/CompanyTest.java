@@ -22,7 +22,9 @@ public class CompanyTest {
 	@Before
 	public void init(){
 		bus1 = Mockito.mock(Bus.class);
+		Mockito.when(bus1.getInternal()).thenReturn(1);
 		bus2 = Mockito.mock(Bus.class);
+		Mockito.when(bus2.getInternal()).thenReturn(2);
 		company = new Company();
 		buses = new ArrayList<Bus>();
 		company.setBuses(buses);
@@ -40,8 +42,7 @@ public class CompanyTest {
 	public void testRemoveBus(){
 		company.addBus(bus2);
 		company.removeBus(bus1);
-		
-		assertTrue(company.getBuses().contains(bus2) && !company.getBuses().contains(bus1));
+		assertTrue(company.getBuses().size() == 1);
 	}
 	
 }

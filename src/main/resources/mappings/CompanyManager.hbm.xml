@@ -11,6 +11,6 @@
 		<property name="email" unique="false"/>
 		<property name="userName" unique="true"/>
 		<property name="password" unique="false"/>
-		<one-to-one name="company" class="ar.edu.unq.tip.model.Company" cascade="all"></one-to-one>
+		<one-to-one name="company" class="ar.edu.unq.tip.model.Company" cascade="all" lazy="false"></one-to-one>
 	</class>
 </hibernate-mapping>

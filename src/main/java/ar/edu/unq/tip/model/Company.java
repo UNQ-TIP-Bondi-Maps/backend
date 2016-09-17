@@ -1,6 +1,8 @@
 package ar.edu.unq.tip.model;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Company extends Entity {
 
@@ -21,7 +23,7 @@ public class Company extends Entity {
 	}
 	
 	public void removeBus(Bus aBus){
-		this.getBuses().remove(aBus);
+		setBuses(getBuses().stream().filter(b -> b.getInternal() == aBus.getInternal()).collect(Collectors.toList()));
 	}
 	
 	public String getName() {
