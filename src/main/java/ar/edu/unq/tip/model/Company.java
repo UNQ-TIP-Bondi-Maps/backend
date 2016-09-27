@@ -1,7 +1,6 @@
 package ar.edu.unq.tip.model;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Company extends Entity {
@@ -9,7 +8,7 @@ public class Company extends Entity {
 	private static final long serialVersionUID = 6112286552950376023L;
 	private String name;
 	private String imageUrl;
-	private List<Bus> buses;
+	private List<BusLine> busLines;
 	
 	public Company() { }
 	
@@ -18,12 +17,12 @@ public class Company extends Entity {
 		this.imageUrl = imageUrl;
 	}
 	
-	public void addBus(Bus aBus){
-		this.getBuses().add(aBus);
+	public void addBusLine(BusLine aBusLine){
+		this.getBusLines().add(aBusLine);
 	}
 	
-	public void removeBus(Bus aBus){
-		setBuses(getBuses().stream().filter(b -> b.getInternal() == aBus.getInternal()).collect(Collectors.toList()));
+	public void removeBusLine(BusLine aBusLine){
+		setBusLines(getBusLines().stream().filter(b -> b.getLine() == aBusLine.getLine()).collect(Collectors.toList()));
 	}
 	
 	public String getName() {
@@ -41,12 +40,12 @@ public class Company extends Entity {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	
-	public List<Bus> getBuses() {
-		return buses;
+
+	public List<BusLine> getBusLines() {
+		return busLines;
 	}
-	
-	public void setBuses(List<Bus> buses) {
-		this.buses = buses;
+
+	public void setBusLines(List<BusLine> busLines) {
+		this.busLines = busLines;
 	}
 }

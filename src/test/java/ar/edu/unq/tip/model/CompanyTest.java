@@ -9,40 +9,38 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import ar.edu.unq.tip.model.Bus;
 import ar.edu.unq.tip.model.Company;
 
 public class CompanyTest {
 
 	private Company company;
-	private Bus bus1;
-	private Bus bus2;
-	private List<Bus> buses;
+	private BusLine busLine1;
+	private BusLine busLine2;
+	private List<BusLine> busLines;
 	
 	@Before
 	public void init(){
-		bus1 = Mockito.mock(Bus.class);
-		Mockito.when(bus1.getInternal()).thenReturn(1);
-		bus2 = Mockito.mock(Bus.class);
-		Mockito.when(bus2.getInternal()).thenReturn(2);
+		busLine1 = Mockito.mock(BusLine.class);
+		Mockito.when(busLine1.getLine()).thenReturn(1);
+		busLine2 = Mockito.mock(BusLine.class);
+		Mockito.when(busLine2.getLine()).thenReturn(2);
 		company = new Company();
-		buses = new ArrayList<Bus>();
-		company.setBuses(buses);
-		company.addBus(bus1);
+		busLines = new ArrayList<BusLine>();
+		company.setBusLines(busLines);
+		company.addBusLine(busLine1);
 	}
 
 	@Test
-	public void testAddBus(){
-		company.addBus(bus1);
+	public void testAddBusLine(){
 		
-		assertTrue(company.getBuses().contains(bus1));
+		assertTrue(company.getBusLines().contains(busLine1));
 	}
 	
 	@Test
-	public void testRemoveBus(){
-		company.addBus(bus2);
-		company.removeBus(bus1);
-		assertTrue(company.getBuses().size() == 1);
+	public void testRemoveBusLine(){
+		company.addBusLine(busLine2);;
+		company.removeBusLine(busLine1);;
+		assertTrue(company.getBusLines().size() == 1);
 	}
-	
+
 }
