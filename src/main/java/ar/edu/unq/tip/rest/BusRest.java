@@ -13,7 +13,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import ar.edu.unq.tip.model.Bus;
-import ar.edu.unq.tip.model.CompanyManager;
 import ar.edu.unq.tip.model.Position;
 import ar.edu.unq.tip.services.BusService;
 

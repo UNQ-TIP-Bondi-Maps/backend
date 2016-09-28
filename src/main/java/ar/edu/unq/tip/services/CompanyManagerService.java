@@ -9,9 +9,9 @@ public class CompanyManagerService extends GenericService<CompanyManager> {
 
 	private static final long serialVersionUID = -6390661270908293143L;
 
-	public Response addBusInCompany(Integer id, Bus bus) {
+	public Response addBusInCompany(Integer id, Integer idBusLine,Bus bus) {
 		CompanyManager companyManager = getRepository().findBy(id);
-		companyManager.getCompany().addBus(bus);
+		companyManager.getCompany().getBusLineByLine(idBusLine).addBus(bus);
 		getRepository().save(companyManager);
 		return Response.ok(companyManager).build();
 	}

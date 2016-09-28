@@ -11,10 +11,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import ar.edu.unq.tip.model.Bus;
 import ar.edu.unq.tip.model.Company;
 import ar.edu.unq.tip.model.CompanyManager;
 import ar.edu.unq.tip.services.CompanyManagerService;
+import ar.edu.unq.tip.model.BusLine;
 
 @Path("/companyManagers")
 public class CompanyManagerRest {
@@ -28,7 +28,7 @@ public class CompanyManagerRest {
 	public void setCompanyManagerService(CompanyManagerService companyManagerService) {
 		this.companyManagerService = companyManagerService;
 		Company company = new Company("moqsa", "unaurl.com");
-		company.setBuses(new ArrayList<Bus>());
+		company.setBusLines(new ArrayList<BusLine>());
 		CompanyManager companyManager = new CompanyManager("Juan Perez", 43521, "perez@gmail.com", "jp", "1234abc", company);
 		this.companyManagerService.save(companyManager);
 	}
@@ -57,20 +57,20 @@ public class CompanyManagerRest {
 	}
 	
 	@POST
-	@Path("/{id}/addBus")
+	@Path("/{id}/addBusLine")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public Response addBus(@PathParam("id") final Integer id, Bus bus) {
+	public Response addBusLine(@PathParam("id") final Integer id, BusLine busLine) {
 		CompanyManager companyManager = getCompanyManagerService().findBy(id);
-		companyManager.getCompany().addBus(bus);
+		companyManager.getCompany().addBusLine(busLine);
 		getCompanyManagerService().update(companyManager);
 		return Response.ok(companyManager).build();
 	}
 	
 	@GET
-	@Path("/{id}/buses")
+	@Path("/{id}/busLines")
 	@Produces("application/json")
-	public List<Bus> allBuses(@PathParam("id") final Integer id) {
-		return getCompanyManagerService().findBy(id).getCompany().getBuses();
+	public List<BusLine> allBusLines(@PathParam("id") final Integer id) {
+		return getCompanyManagerService().findBy(id).getCompany().getBusLines();
 	}
 }
