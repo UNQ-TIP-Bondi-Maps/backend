@@ -25,6 +25,11 @@ public class Company extends Entity {
 		setBusLines(getBusLines().stream().filter(b -> b.getLine() == aBusLine.getLine()).collect(Collectors.toList()));
 	}
 	
+	public BusLine getBusLineByLine(int lineNumber){
+		List<BusLine> busLine = this.getBusLines().stream().filter(l -> l.getLine() == lineNumber).collect(Collectors.toList()); 
+		return busLine==null?null:busLine.get(0);
+	}
+	
 	public String getName() {
 		return name;
 	}
