@@ -102,6 +102,10 @@
 		class="ar.edu.unq.tip.repositories.BusRepository">
 		<property name="sessionFactory" ref="persistence.sessionFactory"/>
 	</bean>
+		<bean id="persistence.busLineRepository" 
+		class="ar.edu.unq.tip.repositories.BusLineRepository">
+		<property name="sessionFactory" ref="persistence.sessionFactory"/>
+	</bean>
 	<bean id="persistence.positionRepository" 
 		class="ar.edu.unq.tip.repositories.PositionRepository">
 		<property name="sessionFactory" ref="persistence.sessionFactory"/>

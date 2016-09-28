@@ -14,6 +14,9 @@
 	<bean id="services.bus" class="ar.edu.unq.tip.services.BusService">
 		<property name="repository" ref="persistence.busRepository" />
 	</bean>
+	<bean id="services.busLine" class="ar.edu.unq.tip.services.BusLineService">
+		<property name="repository" ref="persistence.busLineRepository" />
+	</bean>
 	<bean id="services.position" class="ar.edu.unq.tip.services.PositionService">
 		<property name="repository" ref="persistence.positionRepository" />
 	</bean>

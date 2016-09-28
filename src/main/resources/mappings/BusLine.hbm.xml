@@ -2,15 +2,15 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" default-cascade="save-update">
-	<class name="ar.edu.unq.tip.model.Company">
+	<class name="ar.edu.unq.tip.model.BusLine">
 		<id column="ID" name="id">
 			<generator class="native" />
 		</id>
-		<property name="name" not-null="true" unique="true"/>
+		<property name="line" not-null="true" unique="true"/>
 		<property name="imageUrl" not-null="true" unique="false"/>
-		<bag name="busLines" lazy="false">
-			<key column="companyID"/>
-			<one-to-many class="ar.edu.unq.tip.model.BusLine"/>
+		<bag name="buses" lazy="false">
+			<key column="busLineID"/>
+			<one-to-many class="ar.edu.unq.tip.model.Bus"/>
 		</bag>
 	</class>
 </hibernate-mapping>
