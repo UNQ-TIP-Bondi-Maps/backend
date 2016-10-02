@@ -6,13 +6,17 @@ public class Bus extends Entity {
 	private int internal;
 	private String directionOfTravel;
 	private Position position;
+	private String routeWay;
+	private String routeBack;
 	
 	public Bus() { }
 	
-	public Bus(int internal, String directionOfTravel, Position position) {
+	public Bus(int internal, String directionOfTravel, Position position, String routeWay, String routeBack) {
 		this.internal = internal;
 		this.directionOfTravel = directionOfTravel;
 		this.position = position;
+		this.routeWay = routeWay;
+		this.routeBack = routeBack;
 	}
 	
 	public void updatePosition(Position newPosition){
@@ -45,5 +49,21 @@ public class Bus extends Entity {
 	
 	public void setPosition(Position position) {
 		this.position = position;
+	}
+
+	public String getRouteWay() {
+		return routeWay;
+	}
+
+	public void setRouteWay(String routeWay) {
+		this.routeWay = routeWay;
+	}
+
+	public String getRouteBack() {
+		return routeBack;
+	}
+
+	public void setRouteBack(String routeBack) {
+		this.routeBack = routeBack;
 	}
 }

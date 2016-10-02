@@ -10,5 +10,7 @@
 		<property name="directionOfTravel" not-null="true" unique="false"/>
 		<many-to-one name="position" class="ar.edu.unq.tip.model.Position"
 			lazy="false"></many-to-one>
+		<property name="routeWay" length="1000000"></property>
+		<property name="routeBack" length="1000000"></property>
 	</class>
 </hibernate-mapping>
