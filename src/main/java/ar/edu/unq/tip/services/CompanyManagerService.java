@@ -1,5 +1,7 @@
 package ar.edu.unq.tip.services;
 
+import java.util.List;
+
 import javax.ws.rs.core.Response;
 
 import ar.edu.unq.tip.model.Bus;
@@ -14,6 +16,11 @@ public class CompanyManagerService extends GenericService<CompanyManager> {
 		companyManager.getCompany().getBusLineByLine(idBusLine).addBus(bus);
 		getRepository().save(companyManager);
 		return Response.ok(companyManager).build();
+	}
+
+	public boolean existsUserName(String userName) {
+		List<CompanyManager> companyManagers = getRepository().findAll();
+		return companyManagers.stream().anyMatch(cm -> cm.getUserName().equals(userName));
 	}
 	
 }

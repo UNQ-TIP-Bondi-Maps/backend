@@ -73,4 +73,11 @@ public class CompanyManagerRest {
 	public List<BusLine> allBusLines(@PathParam("id") final Integer id) {
 		return getCompanyManagerService().findBy(id).getCompany().getBusLines();
 	}
+	
+	@GET
+	@Path("/existsUserName/{userName}")
+	@Produces("application/json")
+	public boolean existsUserName(@PathParam("userName") final String userName) {
+		return getCompanyManagerService().existsUserName(userName);
+	}
 }

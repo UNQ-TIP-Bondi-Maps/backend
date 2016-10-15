@@ -11,5 +11,4 @@ public class CompanyManagerRepository extends HibernateGenericDAO<CompanyManager
 	protected Class<CompanyManager> getDomainClass() {
 		return CompanyManager.class;
 	}
-
 }
