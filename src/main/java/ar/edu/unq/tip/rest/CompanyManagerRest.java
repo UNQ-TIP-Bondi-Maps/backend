@@ -9,12 +9,14 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import ar.edu.unq.tip.exceptions.LoginException;
+import ar.edu.unq.tip.model.BusLine;
 import ar.edu.unq.tip.model.Company;
 import ar.edu.unq.tip.model.CompanyManager;
 import ar.edu.unq.tip.services.CompanyManagerService;
-import ar.edu.unq.tip.model.BusLine;
 
 @Path("/companyManagers")
 public class CompanyManagerRest {
@@ -79,5 +81,17 @@ public class CompanyManagerRest {
 	@Produces("application/json")
 	public boolean existsUserName(@PathParam("userName") final String userName) {
 		return getCompanyManagerService().existsUserName(userName);
+	}
+	
+	@GET
+	@Path("/login/{userName}/{password}")
+	@Produces("application/json")
+	public Response login(@PathParam("userName") final String userName, @PathParam("password") final String password) {
+		try {
+			return Response.ok(getCompanyManagerService().login(userName, password)).build();
+		} catch (LoginException e) {
+			return Response.status(Response.Status.BAD_REQUEST)
+					.entity(e.getMessage()).type(MediaType.TEXT_PLAIN).build();
+		}
 	}
 }
