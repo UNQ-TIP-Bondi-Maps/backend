@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 
 import ar.edu.unq.tip.model.Bus;
 import ar.edu.unq.tip.model.BusLine;
+import ar.edu.unq.tip.model.Position;
 import ar.edu.unq.tip.services.BusLineService;
 
 @Path("/busLines")
@@ -28,9 +29,29 @@ public class BusLineRest {
 	
 	public void setBusLineService(BusLineService busLineService) {
 		this.busLineService = busLineService;
-		BusLine busLine = new BusLine(10, "aUrl");
-		busLine.setBuses(new ArrayList<Bus>());
-		this.busLineService.save(busLine);
+		BusLine busLine1 = new BusLine(10, "aUrl");
+		busLine1.setBuses(new ArrayList<Bus>());
+		String routeEncode1 = "z|gsEj~qbJeAm@mBaEwBuEyB_FsDiIwDwIoH_QaFaL}F{MkBaEiAyCm@iAIQaD`DgHpHaGrGeIhIcHhHmBjBkB|A_GhFcFhEc@ZaBuDKMIEG@eDjCGM_@c@YYiEwDmAoAcGyFi@c@eAcAwBuBoDmDcC{B[UoBkBeI_IaGaG_H}GeKsJmCbC{GdG{EpEcCrB_ChBoBdB_D|BmErDuLtJQe@KUmGrF{DbDkAlA_BnBsBzBqA|@kFrDkFvDuAkEsAaEyAiD_BgE_BqD}AyD{CjBeErCwBrA}CxBcDpBwCvByCnB{HhF"; 
+		Bus bus1 = new Bus(1, "Once - Wilde", new Position(-34.779671, -58.262805), routeEncode1, routeEncode1);
+		busLine1.addBus(bus1);
+		this.busLineService.save(busLine1);
+		
+		BusLine busLine2 = new BusLine(159, "aUrl");
+		busLine2.setBuses(new ArrayList<Bus>());
+		String routeEncode2 = "zzyrE|`vbJgWdu@cM_QwKnTqB`p@??sCcAsRt[kGuH"; 
+		Bus bus2 = new Bus(2, "Quilmes - Wilde", new Position(-34.770671, -58.261805), routeEncode2, routeEncode2);
+		String routeEncode3 = "zzyrE|`vbJgWdu@cM_QwKnTqB`p@??sCcAsRt[kGuH"; 
+		Bus bus3 = new Bus(3, "Berazategui - Caballito", new Position(-34.779250, -58.262101), routeEncode3, routeEncode3);
+		busLine2.addBus(bus2);
+		busLine2.addBus(bus3);
+		this.busLineService.save(busLine2);
+		
+		BusLine busLine3 = new BusLine(98, "aUrl");
+		busLine3.setBuses(new ArrayList<Bus>());
+		String routeEncode4 = "xwyrEzbubJ|Q`Nea@hmAeNxs@{LcHcBv_@kRfCqKbKlGjJ}n@z}@"; 
+		Bus bus4 = new Bus(4, "Almagro - Varela", new Position(-34.777771, -58.263524), routeEncode4, routeEncode4);
+		busLine3.addBus(bus4);
+		this.busLineService.save(busLine3);
 	}
 	
 	@POST
@@ -73,6 +94,19 @@ public class BusLineRest {
 	public List<Bus> allBusLines(@PathParam("id") final Integer id) {
 		return getBusLineService().findBy(id).getBuses();
 	}
+	
+	@GET
+	@Path("/lines/{lines}/buses")
+	@Produces("application/json")
+	public List<Bus> allBusListLines(@PathParam("lines") String lines) {
+		//TODO Use QueryParam
+		String[] arrayBusLines = lines.split("&");
+		List<Bus> buses = new ArrayList<Bus>();
+	    for(int i = 0; i < arrayBusLines.length; i++){
+	    	buses.addAll(getBusLineService().findBy(Integer.valueOf(arrayBusLines[i])).getBuses());
+	    }
+	    return buses;
+	}	
 	
 	@DELETE
     @Path("/delete/{id}")

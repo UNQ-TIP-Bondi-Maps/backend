@@ -26,6 +26,7 @@ public class PositionRest {
 		this.positionService = positionService;
 		Position position = new Position(1, 1);
 		this.positionService.save(position);
+		this.positionService.delete(position);
 	}
 	
 	@POST

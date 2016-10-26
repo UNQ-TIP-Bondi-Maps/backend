@@ -28,8 +28,9 @@ public class BusRest {
 	public void setBusService(BusService busService) {
 		this.busService = busService;
 		String routeEncode = "z|gsEj~qbJeAm@mBaEwBuEyB_FsDiIwDwIoH_QaFaL}F{MkBaEiAyCm@iAIQaD`DgHpHaGrGeIhIcHhHmBjBkB|A_GhFcFhEc@ZaBuDKMIEG@eDjCGM_@c@YYiEwDmAoAcGyFi@c@eAcAwBuBoDmDcC{B[UoBkBeI_IaGaG_H}GeKsJmCbC{GdG{EpEcCrB_ChBoBdB_D|BmErDuLtJQe@KUmGrF{DbDkAlA_BnBsBzBqA|@kFrDkFvDuAkEsAaEyAiD_BgE_BqD}AyD{CjBeErCwBrA}CxBcDpBwCvByCnB{HhF"; 
-		Bus bus = new Bus(1, "Once - Wilde", new Position(-34.779671, -58.262805), routeEncode, routeEncode);
+		Bus bus = new Bus(5, "Once - Wilde", new Position(-34.772671, -58.265805), routeEncode, routeEncode);
 		this.busService.save(bus);
+		this.busService.delete(bus);
 	}
 	
 	@POST
