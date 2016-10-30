@@ -38,10 +38,10 @@ public class BusLineRest {
 		
 		BusLine busLine2 = new BusLine(159, "aUrl");
 		busLine2.setBuses(new ArrayList<Bus>());
-		String routeEncode2 = "zzyrE|`vbJgWdu@cM_QwKnTqB`p@??sCcAsRt[kGuH"; 
+		String routeEncode2 = "htyrEzhubJnSsi@kVyJrEmPjc@ccA?sH"; 
 		Bus bus2 = new Bus(2, "Quilmes - Wilde", new Position(-34.770671, -58.261805), routeEncode2, routeEncode2);
-		String routeEncode3 = "zzyrE|`vbJgWdu@cM_QwKnTqB`p@??sCcAsRt[kGuH"; 
-		Bus bus3 = new Bus(3, "Berazategui - Caballito", new Position(-34.779250, -58.262101), routeEncode3, routeEncode3);
+		String routeEncode3 = "htyrEzhubJnSsi@kVyJrEmPjc@ccA?sH"; 
+		Bus bus3 = new Bus(3, "Quilmes - Wilde", new Position(-34.779250, -58.262101), routeEncode3, routeEncode3);
 		busLine2.addBus(bus2);
 		busLine2.addBus(bus3);
 		this.busLineService.save(busLine2);
@@ -102,8 +102,21 @@ public class BusLineRest {
 		//TODO Use QueryParam
 		String[] arrayBusLines = lines.split("&");
 		List<Bus> buses = new ArrayList<Bus>();
-	    for(int i = 0; i < arrayBusLines.length; i++){
-	    	buses.addAll(getBusLineService().findBy(Integer.valueOf(arrayBusLines[i])).getBuses());
+	    for(int i = 0; i < arrayBusLines.length; i++){	
+            buses.addAll(getBusLineService().findBy(Integer.valueOf(arrayBusLines[i])).getBuses());
+	    }
+	    return buses;
+	}	
+	
+	@GET
+	@Path("/closest/{lines}/lat/{lat}/lng/{lng}")
+	@Produces("application/json")
+	public List<Bus> closestBuses(@PathParam("lines") String lines, @PathParam("lat") double lat, @PathParam("lng") double lng) {
+		String[] arrayBusLines = lines.split("&");
+		Position myPosition = new Position(lat, lng);
+		List<Bus> buses = new ArrayList<Bus>();
+	    for(int i = 0; i < arrayBusLines.length; i++){	
+            buses.add(getBusLineService().findBy(Integer.valueOf(arrayBusLines[i])).getClosestBus(myPosition));
 	    }
 	    return buses;
 	}	

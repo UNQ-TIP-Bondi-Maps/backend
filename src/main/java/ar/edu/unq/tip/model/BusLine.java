@@ -25,6 +25,22 @@ public class BusLine extends Entity {
 		setBuses(getBuses().stream().filter(b -> b.getInternal() == aBus.getInternal()).collect(Collectors.toList()));
 	}
 	
+	public Bus getClosestBus(Position aPosition){
+		Bus busResult = null;
+		for(Bus bus : this.getBuses()){
+			if(busResult == null){
+				busResult = bus;
+			}
+			else{
+				if(busResult.getPosition().distanceBetween(aPosition)>bus.getPosition().distanceBetween(aPosition)){
+					busResult = bus;
+				}
+			}
+			
+		}
+		return busResult;
+	}
+	
 	public List<Bus> getBuses() {
 		return buses;
 	}
