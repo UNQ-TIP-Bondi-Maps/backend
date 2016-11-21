@@ -19,12 +19,12 @@ public class Position extends Entity {
 		return Math.sqrt(cat1*cat1 + cat2*cat2);
 	}
 	
-	public static double distanceInMeters(Position start, Position end) {
+	public  double distanceInMeters(Position aPosition) {
 		double radiusEarth = 6378137; //Earth radius in meters
-		double distanceLat = rad(end.getLat()- start.getLat());
-		double distanceLong = rad(end.getLng() - start.getLng());
+		double distanceLat = rad(aPosition.getLat()- this.getLat());
+		double distanceLong = rad(aPosition.getLng() - this.getLng());
 		double a = Math.sin(distanceLat / 2) * Math.sin(distanceLat / 2) + 
-					Math.cos(rad(start.getLat())) * Math.cos(rad(end.getLat())) * 
+					Math.cos(rad(this.getLat())) * Math.cos(rad(aPosition.getLat())) * 
 						Math.sin(distanceLong / 2) * Math.sin(distanceLong / 2);
 		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 		double d = radiusEarth * c;

@@ -12,5 +12,6 @@
 			lazy="false"></many-to-one>
 		<property name="routeWay" length="1000000"></property>
 		<property name="routeBack" length="1000000"></property>
+		<property name= "timeToDestinyGoogle" not-null="false" unique="false"/>
 	</class>
 </hibernate-mapping>

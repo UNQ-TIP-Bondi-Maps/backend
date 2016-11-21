@@ -116,7 +116,9 @@ public class BusLineRest {
 		Position myPosition = new Position(lat, lng);
 		List<Bus> buses = new ArrayList<Bus>();
 	    for(int i = 0; i < arrayBusLines.length; i++){	
-            buses.add(getBusLineService().findBy(Integer.valueOf(arrayBusLines[i])).getClosestBus(myPosition));
+	    	Bus busToAdd = getBusLineService().findBy(Integer.valueOf(arrayBusLines[i])).getClosestBus(myPosition); 
+            busToAdd.setTimeToDestinyGoogle(busToAdd.getTimeToDestiny(myPosition));
+	    	buses.add(busToAdd);
 	    }
 	    return buses;
 	}	

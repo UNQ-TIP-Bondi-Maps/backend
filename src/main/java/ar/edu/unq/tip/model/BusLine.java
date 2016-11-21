@@ -32,12 +32,13 @@ public class BusLine extends Entity {
 				busResult = bus;
 			}
 			else{
-				if(busResult.getPosition().distanceBetween(aPosition)>bus.getPosition().distanceBetween(aPosition)){
+				if(busResult.getPosition().distanceInMeters(aPosition)>bus.getPosition().distanceInMeters(aPosition)){
 					busResult = bus;
 				}
 			}
 			
 		}
+		
 		return busResult;
 	}
 	
