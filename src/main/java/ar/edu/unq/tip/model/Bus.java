@@ -48,8 +48,18 @@ public class Bus extends Entity {
 			if(data != null){
 				JSONArray routes = data.getJSONArray("routes");
 				JSONArray legs = routes.getJSONObject(0).getJSONArray("legs");
-				JSONObject duration = legs.getJSONObject(0).getJSONObject("duration");
-				time = duration.getString("text");
+				JSONArray steps = legs.getJSONObject(0).getJSONArray("steps");
+				int tam = steps.length();
+				for(int i = 0; i<tam; i++){	
+					JSONObject step = steps.getJSONObject(i);
+					String travelMode = step.getString("travel_mode");
+					System.out.println(travelMode);
+					if(travelMode.equals("TRANSIT")){
+						JSONObject duration = step.getJSONObject("duration");
+						time = duration.getString("text");
+						break;
+					}
+				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

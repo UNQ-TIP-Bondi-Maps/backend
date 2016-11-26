@@ -25,6 +25,7 @@ public class BusTest {
 	@Test
 	public void testUpdatePosition(){
 		bus.updatePosition(newPos);
+		
 		assertEquals(bus.getPosition(),newPos);
 	}
 	
