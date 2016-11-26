@@ -32,16 +32,16 @@ public class BusLineRest {
 		BusLine busLine1 = new BusLine(10, "aUrl");
 		busLine1.setBuses(new ArrayList<Bus>());
 		String routeEncode1 = "z|gsEj~qbJeAm@mBaEwBuEyB_FsDiIwDwIoH_QaFaL}F{MkBaEiAyCm@iAIQaD`DgHpHaGrGeIhIcHhHmBjBkB|A_GhFcFhEc@ZaBuDKMIEG@eDjCGM_@c@YYiEwDmAoAcGyFi@c@eAcAwBuBoDmDcC{B[UoBkBeI_IaGaG_H}GeKsJmCbC{GdG{EpEcCrB_ChBoBdB_D|BmErDuLtJQe@KUmGrF{DbDkAlA_BnBsBzBqA|@kFrDkFvDuAkEsAaEyAiD_BgE_BqD}AyD{CjBeErCwBrA}CxBcDpBwCvByCnB{HhF"; 
-		Bus bus1 = new Bus(1, "Once - Wilde", new Position(-34.779671, -58.262805), routeEncode1, routeEncode1);
+		Bus bus1 = new Bus(1, "10 a Recoleta", new Position(-34.779671, -58.262805), routeEncode1, routeEncode1);
 		busLine1.addBus(bus1);
 		this.busLineService.save(busLine1);
 		
 		BusLine busLine2 = new BusLine(159, "aUrl");
 		busLine2.setBuses(new ArrayList<Bus>());
 		String routeEncode2 = "htyrEzhubJnSsi@kVyJrEmPjc@ccA?sH"; 
-		Bus bus2 = new Bus(2, "Quilmes - Wilde", new Position(-34.770671, -58.261805), routeEncode2, routeEncode2);
+		Bus bus2 = new Bus(2, "159 a Correo Central", new Position(-34.770671, -58.261805), routeEncode2, routeEncode2);
 		String routeEncode3 = "htyrEzhubJnSsi@kVyJrEmPjc@ccA?sH"; 
-		Bus bus3 = new Bus(3, "Quilmes - Wilde", new Position(-34.779250, -58.262101), routeEncode3, routeEncode3);
+		Bus bus3 = new Bus(3, "159 a Correo Central", new Position(-34.779250, -58.262101), routeEncode3, routeEncode3);
 		busLine2.addBus(bus2);
 		busLine2.addBus(bus3);
 		this.busLineService.save(busLine2);
@@ -49,7 +49,7 @@ public class BusLineRest {
 		BusLine busLine3 = new BusLine(98, "aUrl");
 		busLine3.setBuses(new ArrayList<Bus>());
 		String routeEncode4 = "xwyrEzbubJ|Q`Nea@hmAeNxs@{LcHcBv_@kRfCqKbKlGjJ}n@z}@"; 
-		Bus bus4 = new Bus(4, "Almagro - Varela", new Position(-34.777771, -58.263524), routeEncode4, routeEncode4);
+		Bus bus4 = new Bus(4, "98 a Plaza Once", new Position(-34.777771, -58.263524), routeEncode4, routeEncode4);
 		busLine3.addBus(bus4);
 		this.busLineService.save(busLine3);
 	}

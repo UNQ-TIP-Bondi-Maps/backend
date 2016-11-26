@@ -28,7 +28,12 @@ public class Position extends Entity {
 						Math.sin(distanceLong / 2) * Math.sin(distanceLong / 2);
 		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 		double d = radiusEarth * c;
+		System.out.println("distancia: " + Math.round(d));
 		return Math.round(d);
+	}
+	
+	public String timeBetweenPositions(Position aPosition){
+		return (int)(this.distanceInMeters(aPosition)/250) +" mins";
 	}
 	
 	private static double rad(double x) {

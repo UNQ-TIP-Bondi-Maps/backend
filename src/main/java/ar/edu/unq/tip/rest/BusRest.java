@@ -69,4 +69,13 @@ public class BusRest {
     public void updateBus(Bus bus) {
         getBusService().update(bus);
     }
+	
+	@PUT
+    @Path("/updateList")
+    @Consumes("application/json")
+    public void updateListBuses(List<Bus> buses) {
+        for(Bus bus : buses){
+        	getBusService().update(bus);
+        }
+    }
 }

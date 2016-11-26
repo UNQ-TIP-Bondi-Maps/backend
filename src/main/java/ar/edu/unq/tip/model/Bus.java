@@ -38,8 +38,7 @@ public class Bus extends Entity {
 		this.setDirectionOfTravel(newDirection);
 	}
 	
-	public String getTimeToDestiny(Position aDestination){
-		
+	public String getTimeToDestiny(Position aDestination){	
 		String time = "";
 		String origin = this.getPosition().getLat() + "," +this.getPosition().getLng();
 	    String destination = aDestination.getLat() + "," + aDestination.getLng();
@@ -56,7 +55,9 @@ public class Bus extends Entity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		if(time.equals("")){
+			time = this.getPosition().timeBetweenPositions(aDestination);
+		}
 		return time;
 	}
 	
@@ -84,7 +85,6 @@ public class Bus extends Entity {
 				StringBuffer response = new StringBuffer();
 				while ((output = br.readLine()) != null) {
 					response.append(output);
-					//System.out.println(output);
 				}
 	
 				conn.disconnect();
