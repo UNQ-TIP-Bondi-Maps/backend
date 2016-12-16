@@ -12,6 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import ar.edu.unq.tip.model.Bus;
 import ar.edu.unq.tip.model.BusLine;
@@ -132,8 +133,15 @@ public class BusLineRest {
 	
 	@PUT
     @Path("/update")
+	@Produces("application/json")
     @Consumes("application/json")
-    public void updateBusLine(BusLine busLine) {
-        getBusLineService().update(busLine);
+    public Response updateBusLine(BusLine busLine) {
+		try {
+			getBusLineService().update(busLine);
+		} catch (Exception e) {
+			return Response.serverError().status(Status.BAD_REQUEST).build();
+		}
+		return Response.ok().build();
+        
     }
 }

@@ -11,6 +11,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import ar.edu.unq.tip.exceptions.LoginException;
 import ar.edu.unq.tip.model.BusLine;
@@ -64,8 +65,12 @@ public class CompanyManagerRest {
 	@Consumes("application/json")
 	public Response addBusLine(@PathParam("id") final Integer id, BusLine busLine) {
 		CompanyManager companyManager = getCompanyManagerService().findBy(id);
-		companyManager.getCompany().addBusLine(busLine);
-		getCompanyManagerService().update(companyManager);
+		try {
+			companyManager.getCompany().addBusLine(busLine);
+			getCompanyManagerService().update(companyManager);
+		} catch (Exception e) {
+			return Response.serverError().status(Status.BAD_REQUEST).build();
+		}
 		return Response.ok(companyManager).build();
 	}
 	
