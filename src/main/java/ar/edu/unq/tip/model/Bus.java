@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONObject;
@@ -18,16 +20,20 @@ public class Bus extends Entity {
 	private String routeWay;
 	private String routeBack;
 	private String timeToDestinyGoogle;
+	private List<Position> busStopsWay;
+	private List<Position> busStopsBack;
 	
 	public Bus() { }
 	
-	public Bus(int internal, String directionOfTravel, Position position, String routeWay, String routeBack) {
+	public Bus(int internal, String directionOfTravel, Position position, String routeWay, String routeBack, ArrayList<Position> busStopsWay, ArrayList<Position> busStopsBack) {
 		this.internal = internal;
 		this.directionOfTravel = directionOfTravel;
 		this.position = position;
 		this.routeWay = routeWay;
 		this.routeBack = routeBack;
 		this.timeToDestinyGoogle = "";
+		this.busStopsWay = busStopsWay;
+		this.busStopsBack = busStopsBack;
 	}
 	
 	public void updatePosition(Position newPosition){
@@ -154,5 +160,21 @@ public class Bus extends Entity {
 
 	public void setTimeToDestinyGoogle(String timeToDestinyGoogle) {
 		this.timeToDestinyGoogle = timeToDestinyGoogle;
+	}
+
+	public List<Position> getBusStopsBack() {
+		return busStopsBack;
+	}
+
+	public void setBusStopsBack(List<Position> busStopsBack) {
+		this.busStopsBack = busStopsBack;
+	}
+
+	public List<Position> getBusStopsWay() {
+		return busStopsWay;
+	}
+
+	public void setBusStopsWay(List<Position> busStopsWay) {
+		this.busStopsWay = busStopsWay;
 	}
 }

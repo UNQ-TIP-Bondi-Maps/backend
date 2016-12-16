@@ -13,5 +13,13 @@
 		<property name="routeWay" length="1000000"></property>
 		<property name="routeBack" length="1000000"></property>
 		<property name= "timeToDestinyGoogle" not-null="false" unique="false"/>
+		<bag name="busStopsWay" lazy="false">
+			<key column="busID"/>
+			<one-to-many class="ar.edu.unq.tip.model.Position"/>
+		</bag>
+		<bag name="busStopsBack" lazy="false">
+			<key column="busID"/>
+			<one-to-many class="ar.edu.unq.tip.model.Position"/>
+		</bag>
 	</class>
 </hibernate-mapping>
