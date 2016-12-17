@@ -15,8 +15,9 @@ Descargar [Eclipse].
 $ git clone https://github.com/UNQ-TIP-Bondi-Maps/backend.git
 $ cd backend
 $ mvn install eclipse:eclipse
-Importar el proyecto con Eclipse.
 ```
+
+Importar el proyecto con Eclipse.
 
 ### Backlog
 
